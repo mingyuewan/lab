@@ -1,0 +1,8 @@
+:root { --ink:#1c1917; --muted:#57534e; --paper:#f6f1e8; --card:#fffdf8; --line:#d6cbb8; --accent:#9a3412; }
+body { margin:0; font-family: Georgia, Palatino, "Songti SC", serif; background:var(--paper); color:var(--ink); line-height:1.65; }
+.wrap { max-width:720px; margin:0 auto; padding:48px 20px 80px; }
+.kicker,.lead,.meta { color:var(--muted); }
+h1 { font-size:36px; line-height:1.2; }
+a { color:var(--accent); }
+.card { background:var(--card); border:1px solid var(--line); padding:20px 22px; border-radius:12px; }
+.essay p { margin:0 0 1em; }
