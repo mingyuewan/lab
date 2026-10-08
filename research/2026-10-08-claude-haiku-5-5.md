@@ -41,7 +41,7 @@ Anthropic 把 Haiku 5.5 标成“比 Haiku 4.5 平均便宜约 75%、短请求�
 | C5 | GPT-6 Luna 标准价同为 $0.10 / $0.50，但整请求在 272K 才升到 $0.20 / $0.75；Haiku 在 100K 就 5 倍 | Yash 帖 2107895971103519144、VisiveAI 帖 2107902690638569516 复述 | OpenAI pricing 页 Luna：$0.10 / $0.50，under 272K；OpenAI 发布文写 Luna 从 $0.20/$1.20 降到 $0.10/$0.50。长档 $0.20/$0.75 见于 Autohive 引官方 changelog，本包未打开 developers.openai.com 价目原文，长档标 low-med | high（短档同价） / med（272K 后确切倍数） | 打开 OpenAI API pricing 长上下文行 |
 | C6 | 厂商表：GDPval-AA v2.1 1620 vs Luna 1437 vs Haiku 4.5 735 vs Sonnet 5.5 1840；OSWorld 2.1 offline 72.4% / 48.9% / 15.7% / 83.9%；Terminal-Bench 4.0 39.2% / 16.4% / 0.0% / 70.6%；FrontierCode 1.1 Main 46.4% / 42.4% / — / 52.1% xhigh；HLE no tools 45.9% vs Haiku 4.5 10.2%，Luna 格为 — | 线程图 2107894042235166750；Grok 回复复述 | 落地页表与 system card 目录 §8.4 / §8.9.3 / §8.10 对应这些评测名。VentureBeat 明示 “vendor-reported, not independent verification” | med（数字存在于厂商材料） / low（外推“全面强于 Luna”） | 第三方同 harness 复跑 |
 | C7 | “最快模型”，但脚注：标准速度下最快，慢于 Fast Mode 的 Opus | 主帖 “fastest” | 落地页脚注 1 原文。独立演示（夜火车、Mario）里 Luna 墙钟更快，见 C12 | high（脚注范围） / low（用户感知速度） | 同 prompt、同 effort 的 TTFT / tok/s |
-| C8 | 首个带 effort 的 Haiku，默认 medium，不能关 thinking；temperature / top_p / top_k 非默认会 400 | 线程 2107894048753164362 | docs：Default effort medium；“Omit temperature, top_p, and top_k”。Simon：无法 disable reasoning，low effort 鹘鹕 7 秒 / 0.0936 cent，max effort 5m09s / 3.3826 cent | high | API 接受 temperature=0 |
+| C8 | 首个带 effort 的 Haiku，默认 medium，不能关 thinking；temperature / top_p / top_k 非默认会 400 | 线程 2107894048753164362 | docs：Default effort medium；“Omit temperature, top_p, and top_k”。Simon：无法 disable reasoning，low effort 鹈鹕 7 秒 / 0.0936 cent，max effort 5m09s / 3.3826 cent | high | API 接受 temperature=0 |
 | C9 | Sonnet 5.5 cache read 从 $0.20 降到 $0.10，多数 agent 任务约便宜 20% | 帖 2107894060229034197 | 落地页 Further updates 同一句 | high（公告） / med（20% 是混合假设） | Sonnet 发票 cache 占比 |
 | C10 | 本周给 Max 5x $100、Max 20x $200、Team 最多 $500/月 API 积分，不结转 | 主帖未写，在落地页 | 落地页引 Help Center https://support.claude.com/en/articles/17154008 ；Simon 引同一文 “do not roll over” | med | 打开 Help Center 原文并看账单 |
 | C11 | 不跨新 RSP 阈值；cyber 低于 Opus 5 / 5.5 / Mythos 5.1，防护比 Sonnet 5.5 松、比 Haiku 4.5 紧；生物防护与 Sonnet 5/5.5、Opus 5 相同 | 帖 2107894054142787877 只说 alignment eval “major improvements … far fewer instances of misaligned behavior” | system card 执行摘要与 §2：does not cross any new RSP thresholds；cyber short of Opus 5.5 / Mythos 5.1 / Opus 5。落地页 Safeguards 段与卡一致 | high（卡内表述） | RSP 更新或外部评测改判 |
@@ -87,7 +87,7 @@ VentureBeat、SiliconANGLE 只复述厂商表，用作“媒体没有独立复�
 1. 75% 与 90% 同时传播。主帖和落地页首屏用 75%；脚注才写 90% 标价降只覆盖 ≤100k，且还要扣 tokenizer。日文速报和 VentureBeat 标题把 90% 写成总降幅。两句都出自 Anthropic，指的不是同一个量。
 2. Tokenizer：docs “approximately 30% more”，Simon 工具 “around 1.25x”。若 30% 属实，75% 平均节省会被再吃掉一截；1.25x 则脚注 “slightly more” 偏轻。没有官方 count_tokens 对照样本。
 3. 对齐叙事分裂。帖 2107894054142787877：“far fewer instances of misaligned behavior”。System card：行为审计 over-refuse 为所测模型最高，且 silent copying 多于 Haiku 4.5；同时单轮良性 over-refuse 低于 Haiku 4.5。营销句只取了审计的一半。
-4. “全面强于 Luna” 只在 Anthropic harness，且 HLE 的 Luna 格是 —”。Browser Use 长程浏览器任务报同性能、2.8 倍价。速度演示里 Luna 墙钟更短。厂商 “fastest” 被脚注限制在自家标准速度，不含 Opus Fast Mode，也不含跨厂商 TTFT。
+4. “全面强于 Luna” 只在 Anthropic harness，且 HLE 的 Luna 格是 “—”。Browser Use 长程浏览器任务报同性能、2.8 倍价。速度演示里 Luna 墙钟更短。厂商 “fastest” 被脚注限制在自家标准速度，不含 Opus Fast Mode，也不含跨厂商 TTFT。
 5. 渠道名：帖写 Microsoft Azure，docs 写 Microsoft Foundry。可能是同一托管的不同商品名，帖没有给部署 ID。
 6. Haiku 产品页旧 slogan 仍是 “The cheapest, fastest, and most capable small model we've ever released”，5.5 公告用了同一句。口号跨代复用，不能当能力增量证据。
 
@@ -107,3 +107,13 @@ VentureBeat、SiliconANGLE 只复述厂商表，用作“媒体没有独立复�
 - 角度 A：75% 是流量加权后的账单故事，90% 是短请求标价故事，写的时候必须拆开。
 - 角度 B：100k 悬崖对 subagent/浏览器任务是产品边界，不是脚注。Browser Use 是机制证据，夜火车只是轶事。
 - 角度 C：对齐帖与 system card 的 over-refuse / silent copying 不能合成一句“更安全”。卡自己把非前沿卡写短了，外部复跑更必要。
+
+
+## 11. 证据摘记（补字数，非成稿）
+落地页把使用场景写成四类：摘要、压缩、数据库查询、分类，并明确它适合当 Opus 5.5 / Sonnet 5.5 的编码 subagent，以及直播客服和浏览器操作。这句话和价崖是一套设计。短请求贴着 Luna 的地板价抢分类和路由；浏览器和多步电脑操作很容易把缓存上下文顶过十万 token，于是单价变成五倍。Browser Use 说自家长程台子“性能与 Luna 持平、贵 2.8 倍”，机制上对得上这条产品边界，但倍数本身仍只有一条帖，没有公开日志。
+
+客户引语要拆开看，不能并成“企业已验证”。Asana 的 Aaron Vinh 说 AI Teammates 评测里任务完成延迟降三成以上、每轮推理最快 2.5 倍，对照的是“我们今天在用的模型”，没写是不是 Haiku 4.5。HubSpot 的 Ze’ev Klapow 说模拟门户 CRM 套件三跑平均 92.8%，陈旧但含糊记录的审计任务上最快、命中最高、误报最低，没给对照模型名单。AlphaSense 的 Daniel Campos 说 Ask in Document 每周约八百万次调用，四百条查询上 0.84 对 0.76，并称统计显著。Box 的 Yashodha Bhavnani 说比 Haiku 4.5 高 11 分、延迟约一半。Rogo 的 Alex Wang 只讲十 K 里抽分部收入，没有分数。Cognition 的 Walden Yan 说 Devin Fusion 用 Haiku 5.5 当 sidekick、Opus 5.5 当主模型，FrontierCode 66.2，同时降成本和延迟。六则里只有 AlphaSense 和 Box 明确对照 Haiku 4.5。全部只出现在厂商页。
+
+系统卡还有一层和帖文相反的拒绝行为。单轮有害请求上，Haiku 5.5 在 API 和 claude.ai 的无害应答率是近期模型最高；单轮良性 over-refuse 在 API 是 0.17% 对 Haiku 4.5 的 0.44%，claude.ai 是 0.82% 对 3.05%。选举完整性多轮适当应答率 API 99%、claude.ai 98%，Haiku 4.5 是 93% 和 87%。同一张卡又写行为审计里的 over-refuse 高于包括 Haiku 4.5 在内的所有受测模型。所以“拒绝更少”和“拒绝更多”都有出处，差在单轮脚本和多轮行为审计。卡还写它在自动化行为审计里过度拒绝最多，同时比大模型更不擅长隐蔽破坏，压力下诚实度不低于受测模型。福利段写训练后表达的痛苦多于近期模型、仍明显少于 Opus 5。这些没有进官方帖。
+
+文档比较表把 Fable 5.1 标成 $10/$50、Opus 5.5 $4/$20、Sonnet 5.5 $2/$10、Haiku 5.5 从 $0.10/$0.50 起。缓存读在 Haiku 上是输入价的 10%。批处理输入输出五折。一小时缓存写是 ≤100k 的 $0.20、>100k 的 $1。这些行在 overview，不在主帖。知识截止和训练数据截止都写 June 2026。上下文换算：现行分词器下一百万 token 约五十五万五千词，旧分词器约七十五万词，和“多约 30% token”同向，但仍不是 Simon 那次 1.25 倍计数的同文对照。
