@@ -93,6 +93,8 @@ LittleBit-2（https://arxiv.org/abs/2603.00042 与 OpenReview https://openreview
 
 补充核对（仍是已打开页面，不是新搜索臆测）: Table 1 的 0.1 BPW 行不只 Llama2-7B 的 15.92。同表还有 OPT 53.76、另一列 Llama 15.58、Llama2-13B 15.09、Llama3 26.11、Phi-4 19.73、QwQ 35.26。QwQ 到 35 已经不像病毒帖说的「极端压缩仍稳健」。作者把甜点写成 0.3–0.55 BPW，0.3 到 0.1 之间有 cliff。压过 STBLLM 还混进了训练差: LittleBit 是 5 epoch QAT，STBLLM 是 PTQ。kernel 的 11.6× 测的是 Llama2-70B 一层 MLP（8192×28672）在 A100 上的 GEMV，不是 13B 整模，也不是手机 SoC。仓库支持 Llama 2/3、OPT、Phi-4、Qwen2.5、QwQ、Gemma 2/3、Qwen3，只说明代码路径能接这些结构，eval 示例里的 `username/littlebit-llama-7b-0.1bpw` 是占位符。issue #1 只证明 2026-01-16 时没有官方卡，不能单独证明 10 月仍无私人权重。
 
+传播机制再记一笔。主帖正文没有论文链接，链接在下一帖。转发链（@heyim_shree、@CrazyShyyt、@avynsrc）复制的是主帖措辞，不是摘要里的 potential、kernel-level、QAT。@avynsrc 还写成 via @jun_song，本包没有核到 Jun Song 是作者或首发。作者账号前一天的线粒体帖和前两天的酶设计帖用的是同一套「科学家疯了 / 刚开源 / 改写规则」句式，所以这条的数字应先当二手压缩，再回论文表。没有看到 Banseok Lee 或 Samsung Research 官方账号在 10 月 8 日出来收这个叙事。
+
 ## 7. Contradictions
 1. 传播日 vs 论文日。X 把 2025-05 的 NeurIPS 论文说成 2026-10-08 的发布。同日仓库 commit 是 bugfix，不是权重发布。
 2. 11.6× vs 2.46×。kernel 峰值（A100、70B MLP、0.1 BPW）和博文端到端（7B 解码 203.20 vs 82.56 tok/s）差一个数量级。论文自己写了 discrepancy。
